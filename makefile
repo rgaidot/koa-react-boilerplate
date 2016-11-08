@@ -16,6 +16,9 @@ run-api:
 test-api:
 	cd api && npm test
 
+test-frontend:
+	cd frontend && npm test
+
 clean:
 	@echo 'Delete node_modules directory'
 	rm -rf api/node_modules

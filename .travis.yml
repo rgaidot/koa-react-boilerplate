@@ -3,25 +3,13 @@ language: node_js
 node_js:
     - '7.0.0'
 
-sudo: required
-dist: yakkety
-
-env:
-    - CXX=g++-6
-
 cache:
     directories:
         - node_modules
 
 before_script:
     - 'export NODE_ENV=test'
-
-before_install:
     - export CXX="g++-6"
     - sleep 3
-    - npm install -g npm
-    - npm install -g node-gyp
-    - npm --version
-
-install:
-    - "make --silent install"
+    - nvm install 7
+    - npm install -g yarn
