@@ -1,11 +1,11 @@
 {
     "presets": [
         "es2015",
-        "stage-0"
+        "stage-0",
+        "react"
     ],
     "plugins": [
-        "transform-async-to-generator",
-        "syntax-async-functions",
+        "transform-react-jsx",
         ["transform-runtime", {
             "polyfill": false,
             "regenerator": true
