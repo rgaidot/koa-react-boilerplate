@@ -1,5 +1,7 @@
 language: node_js
 
+sudo: required
+
 node_js:
     - '7.0.0'
 
@@ -8,7 +10,7 @@ cache:
         - node_modules
 
 before_script:
-    - 'export NODE_ENV=test'
+    - export NODE_ENV=test
     - export CXX="g++-6"
     - sleep 3
     - npm install -g yarn

@@ -11,7 +11,7 @@ make install
 ## Dev
 
 ```sh
-make run
+make run -j
 ```
 
 ## Test

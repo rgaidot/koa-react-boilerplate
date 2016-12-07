@@ -1,0 +1,8 @@
+{
+  "threshold": 30,
+  "identifiers": true,
+  "matches": 2,
+  "jsx": true,
+  "reporter": "json",
+  "suppress": 100
+}
