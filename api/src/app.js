@@ -13,6 +13,8 @@ import config from 'config';
 import logger from './middlewares/logger';
 import notFound from './middlewares/notFound';
 
+import db from './initializers/database';
+
 import api from './api';
 
 const app = new Koa()
@@ -23,7 +25,12 @@ const app = new Koa()
     .use(koaMount('/', api))
     .use(bodyParser());
 
-app.listen(config.port, () =>
-    console.log(chalk.black.bgGreen.bold(`${config.appName} - ${config.version}`)));
+const main = async () => {
+    const dbService = await db;
+    await app.listen(config.port, () =>
+        console.log(chalk.black.bgGreen.bold(`${config.appName} - ${config.version}`)));
+};
+
+main().catch(error => console.log(error));
 
 export default app;
