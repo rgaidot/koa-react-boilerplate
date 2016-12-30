@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
-import { Button } from 'antd';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AppContainer = ({ children, title = 'Koa Restfull Frontend' }) => (
-    <div>
-        <h1 className="main-container">{title}</h1>
-        <Button type="primary">Primary</Button>
+    <div className="AppContainer">
+        <Header title={title} />
         <div className="main-wrapper">{children}</div>
+        <Footer />
     </div>
 );
 

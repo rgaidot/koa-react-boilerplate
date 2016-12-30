@@ -40,7 +40,7 @@
   "scripts": {
     "lint": "eslint src test",
     "start": "NODE_ENV=development ./node_modules/.bin/nodemon",
-    "test": "NODE_ENV=test nyc --report-dir=../tests/api/coverage --all --statements=86 --lines=86 --functions=100 --branches=61 --check-coverage --reporter=lcov ./node_modules/.bin/mocha"
+    "test": "NODE_ENV=test nyc --report-dir=../tests/api/coverage --all --statements=86 --lines=86 --functions=100 --branches=50 --check-coverage --reporter=lcov ./node_modules/.bin/mocha --opts mocha.opts"
   },
   "author": "Régis Gaidot",
   "license": "MIT"

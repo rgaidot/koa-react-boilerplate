@@ -1,0 +1,13 @@
+:export {
+    Header: Header;
+    Title: Title;
+}
+
+.Header {
+  background: black;
+  .Title {
+    color: white;
+    font-size: 1.4rem;
+    padding: 0 15px;
+  }
+}

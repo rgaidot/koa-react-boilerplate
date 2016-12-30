@@ -21,11 +21,26 @@ module.exports = {
         open: true,
     },
     module: {
-        loaders: [{
-            test: /\.js$/,
-            loader: 'babel',
-            exclude: /node_modules/,
-        }],
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/,
+                query: {
+                    plugins: [
+                        ['import', [{ libraryName: 'antd', style: true }]],
+                    ],
+                },
+            },
+            {
+                test: /\.less$/,
+                loader: 'style!css!postcss!less',
+            },
+            {
+                test: /\.(scss|sass)$/,
+                loader: 'style!css!postcss!sass?outputStyle=expanded',
+            },
+        ],
     },
     output: {
         filename: './assets/[name].bundle.js',

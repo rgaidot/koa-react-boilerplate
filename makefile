@@ -22,12 +22,10 @@ run-frontend:
 test-api:
 	@echo 'Start API Tests'
 	cd api && npm test
-	@./node_modules/jsinspect/bin/jsinspect
 
 test-frontend:
-	@echo 'Start Frontend Tests'	
+	@echo 'Start Frontend Tests'
 	cd frontend && npm test
-	@./node_modules/jsinspect/bin/jsinspect
 
 clean:
 	@echo 'Delete node_modules directory'
