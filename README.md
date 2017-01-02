@@ -11,7 +11,17 @@ make install
 ## Dev
 
 ```sh
-make run -j
+make -j run
+```
+
+### Create model
+```sh
+make generate-model MODEL=Foo
+```
+
+### Running migrations
+```sh
+make migrate
 ```
 
 ## Test

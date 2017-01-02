@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable no-param-reassign */
 
 import Koa from 'koa';
 import koaMount from 'koa-mount';
@@ -13,7 +12,7 @@ import config from 'config';
 import logger from './middlewares/logger';
 import notFound from './middlewares/notFound';
 
-import db from './initializers/database';
+import db from '../config/initializers/sequelize';
 
 import api from './api';
 

@@ -1,13 +1,5 @@
 {
     "port": 3000,
     "appName": "Koa Restfull API",
-    "version": "0.1.0",
-    "database": {
-        "adapter": "postgres", 
-        "name": "koa-restfull-db",
-        "username": "pg",
-        "password": "",
-        "hostname": "127.0.0.1",
-        "port": 5432
-    }
+    "version": "0.1.0"
 }

@@ -1,7 +1,7 @@
 import request from 'supertest';
 import config from 'config';
 
-import app from '../../../../src/app';
+import app from '../../../../app';
 
 describe('/api', () => {
     it('/v1', (done) => {
@@ -10,6 +10,7 @@ describe('/api', () => {
           .expect('Content-Type', /json/)
           .expect(200, {
               appName: config.appName,
+              revision: 'development',
               version: config.version,
           }, done);
     });

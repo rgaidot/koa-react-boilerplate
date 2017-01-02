@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 import config from 'config';
 import KoaRouter from 'koa-router';
 
@@ -7,8 +5,8 @@ const v1 = new KoaRouter();
 
 v1.get('/api/v1', async (ctx) => {
     ctx.body = {
-        // TODO: add: 'git rev-parse --short HEAD' on build/config
         appName: config.appName,
+        revision: process.env.APP_REVISION || 'development',
         version: config.version,
     };
 

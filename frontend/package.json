@@ -60,7 +60,7 @@
     "webpack-dev-server": "~1.16.2"
   },
   "scripts": {
-    "test": "NODE_ENV=test nyc --report-dir=../tests/frontend/coverage --all --statements=86 --lines=86 --functions=100 --branches=50 --check-coverage --reporter=lcov ./node_modules/.bin/mocha --opts mocha.opts"
+    "test": "NODE_ENV=test nyc --report-dir=../tests/frontend/coverage --all --statements=86 --lines=86 --functions=70 --branches=50 --check-coverage --reporter=lcov ./node_modules/.bin/mocha --opts mocha.opts"
   },
   "author": "Régis Gaidot",
   "license": "MIT"

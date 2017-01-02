@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 import Koa from 'koa';
 
 import v1 from './controllers/api/v1/index';

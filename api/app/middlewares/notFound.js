@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 async function notFound(ctx, next) {
     await next();
     const status = ctx.status || 404;
