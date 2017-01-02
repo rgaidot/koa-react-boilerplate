@@ -10,20 +10,18 @@ const client = new Sequelize(config.database, config.username, config.password, 
 let models = {};
 
 readdirSync(modelsPath)
-.filter((file) => {
-    return (file.indexOf(".") !== 0);
+.filter(file => {
+    return (file.indexOf(".") !== 0) && (file !== "index.js");
 })
-.forEach((file) => {
-    const model = client['import'](path.join(modelsPath, file));
+.forEach(file => {
+    const model = client.import(path.join(modelsPath, file));
     models[model.name] = model;
 });
 
-Object.keys(models).forEach((modelName) => {
-    if (models[modelName].options.hasOwnProperty('associate')) {
-        models[modelName].options.associate(models);
+Object.keys(models).forEach(modelName => {
+    if (models[modelName].associate) {
+        models[modelName].associate(models);
     }
 });
 
-client.models = models;
-
-export default { client, models };
+export default client;

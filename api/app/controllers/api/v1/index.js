@@ -1,5 +1,6 @@
 import config from 'config';
 import KoaRouter from 'koa-router';
+import models from '../../../models';
 
 const v1 = new KoaRouter();
 
