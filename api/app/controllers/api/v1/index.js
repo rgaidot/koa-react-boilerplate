@@ -1,6 +1,5 @@
 import config from 'config';
 import KoaRouter from 'koa-router';
-import models from '../../../models';
 
 const v1 = new KoaRouter();
 
@@ -13,7 +12,5 @@ v1.get('/api/v1', async (ctx) => {
 
     ctx.status = 200;
 });
-
-v1.use(users.middleware());
 
 export default v1;
