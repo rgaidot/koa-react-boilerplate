@@ -14,4 +14,6 @@ v1.get('/api/v1', async (ctx) => {
     ctx.status = 200;
 });
 
+v1.use(users.middleware());
+
 export default v1;

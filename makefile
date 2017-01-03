@@ -49,11 +49,11 @@ migrate:
 
 run-api:
 	@echo 'Start API'
-	cd api && node index.js
+	cd api && npm start
 
 run-frontend:
 	@echo 'Start Frontend'
-	cd frontend && ./node_modules/.bin/webpack-dev-server
+	cd frontend && npm start
 
 test-api:
 	@echo 'Start API Tests'
