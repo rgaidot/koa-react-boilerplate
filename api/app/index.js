@@ -21,8 +21,8 @@ const app = new Koa()
     .use(helmet())
     .use(logger)
     .use(notFound)
-    .use(koaMount('/', api))
-    .use(bodyParser());
+    .use(bodyParser())
+    .use(koaMount('/', api));
 
 const main = async () => {
     const dbService = await db;
