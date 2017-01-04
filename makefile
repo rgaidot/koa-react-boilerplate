@@ -69,6 +69,10 @@ test-frontend:
 	@echo 'Start Frontend Tests'
 	cd frontend && npm test
 
+build-frontend:
+	@rm -rf ./frontend/public/assets/* || true
+	@cd frontend && ./node_modules/.bin/webpack --progress -p -d
+
 clean:
 	@echo 'Delete node_modules directory'
 	rm -rf api/node_modules

@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { HotModuleReplacementPlugin } from 'webpack';
 
-const APP_DIR = resolve(__dirname, '..', 'public', 'assets');
+const APP_DIR = resolve(__dirname, '..', 'public');
 const BUILD_DIR = resolve(__dirname, '..', 'src');
 const HTML_DIR = resolve(__dirname, '..', 'public');
 
