@@ -3,7 +3,7 @@
 PGUSER ?= postgres
 PGHOST ?= 127.0.0.1
 
-install: install-api create-database-for-dev
+install: install-npm install-dockers create-database-for-dev
 
 test:
 	@$(MAKE) drop-database-for-test
@@ -13,7 +13,13 @@ test:
 
 run: run-api run-frontend
 
-install-api:
+install-dockers:
+	@if which docker > /dev/null; then\
+		@echo "Installing Docker images";\
+		docker run -d -p 5432:5432 postgres;\
+	fi
+
+install-npm:
 	@echo 'Installing NPM'
 	cd api && yarn
 	cd frontend && yarn
