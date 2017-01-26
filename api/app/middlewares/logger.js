@@ -6,7 +6,7 @@ async function logger(ctx, next) {
         const start = new Date();
         await next();
         const ms = new Date() - start;
-        winston.error(`${chalk.inverse(start)} - ${chalk.black.bgBlue.bold(ctx.status)} ${chalk.bold(ctx.method)} ${ctx.url} - ${chalk.green(ms)} ms`);
+        winston.info(`${chalk.inverse(start)} - ${chalk.black.bgBlue.bold(ctx.status)} ${chalk.bold(ctx.method)} ${ctx.url} - ${chalk.green(ms)} ms`);
     } catch (err) {
         ctx.body = { message: err.message };
         ctx.status = err.status || 500;

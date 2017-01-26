@@ -7,12 +7,11 @@ import helmet from 'koa-helmet';
 import bodyParser from 'koa-bodyparser';
 import cors from 'kcors';
 import chalk from 'chalk';
+import winston from 'winston';
 
 import config from 'config';
 import logger from './middlewares/logger';
 import notFound from './middlewares/notFound';
-
-import winston from 'winston';
 
 import db from '../config/initializers/sequelize';
 
