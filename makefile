@@ -11,6 +11,10 @@ test:
 	@$(MAKE) test-api
 	@$(MAKE) test-frontend
 
+codeclimate:
+	@$(MAKE) codeclimate-api
+	@$(MAKE) codeclimate-frontend
+
 run: run-api run-frontend
 
 install-dockers:
@@ -68,6 +72,14 @@ test-api:
 test-frontend:
 	@echo 'Start Frontend Tests'
 	cd frontend && npm test
+
+codeclimate-api:
+	@echo 'Codeclimate API'
+	cd api && codeclimate analyze
+
+codeclimate-frontend:
+	@echo 'Codeclimate Frontend'
+	cd frontend && codeclimate analyze
 
 build-frontend:
 	@rm -rf ./frontend/public/assets/* || true

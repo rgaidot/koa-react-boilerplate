@@ -1,0 +1,23 @@
+---
+engines:
+  eslint:
+    enabled: true
+    config:
+      extensions:
+        - .js
+    channel: "eslint-3"
+    checks:
+      import/no-duplicates:
+        enabled: true
+      import/no-extraneous-dependencies:
+        enabled: false
+      import/no-named-as-default-member:
+        enabled: true
+      import/no-unresolved:
+        enabled: true
+ratings:
+  paths:
+  - "**.js"
+exclude_paths:
+  - tests/**/*
+  - node_modules/**/*
