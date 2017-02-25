@@ -1,4 +1,4 @@
-# Koa React Boilerplate [![Build Status](https://travis-ci.com/mistertemp/koa-react-boilerplate.svg?token=yoAbF1zEgNCEpkqzGXJQ&branch=master)](https://travis-ci.com/mistertemp/koa-react-boilerplate)
+# Koa React Boilerplate [![Build Status](https://travis-ci.com/mistertemp/koa-react-boilerplate.svg?token=yoAbF1zEgNCEpkqzGXJQ&branch=master)](https://travis-ci.com/mistertemp/koa-react-boilerplate) [![Code Climate](https://codeclimate.com/github/rgaidot/koa-react-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/rgaidot/koa-react-boilerplate)
 
 Another yet an awesome boilerplate to complement what already exists :-)
 
