@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
-import App from './containers/AppContainer';
+import RootContainers from './containers/RootContainer';
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root'),
+import rootStore from './store';
+import rootReducer from './store/reducers';
+
+const store = rootStore(rootReducer);
+const rootElement = document.getElementById('root');
+
+render(
+    <RootContainers {...{ store }} />,
+    rootElement,
 );
