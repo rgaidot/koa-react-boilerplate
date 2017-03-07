@@ -2,6 +2,11 @@
 
 Another yet an awesome boilerplate to complement what already exists :-)
 
+
+## Prerequisites
+
+- [Docker](https://docs.docker.com/engine/installation/)
+
 ## Install
 
 ```sh
