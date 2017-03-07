@@ -33,7 +33,6 @@
     "jsinspect": "^0.8.0",
     "nodemon": "~1.11.0",
     "nsp": "^2.6.2",
-    "nyc": "^10.0.0",
     "supertest": "~2.0.1",
     "webpack": "~1.13.2",
     "webpack-dev-server": "~1.16.2"
@@ -41,7 +40,7 @@
   "scripts": {
     "lint": "eslint src test",
     "start": "./node_modules/.bin/nodemon --config ./config/nodemon.json",
-    "test": "NODE_ENV=test nyc --report-dir=../tests/api/coverage --all --statements=86 --lines=86 --functions=70 --branches=50 --check-coverage --reporter=lcov ../node_modules/.bin/mocha --opts mocha.opts"
+    "test": "NODE_ENV=test ../node_modules/.bin/nyc --report-dir=../tests/api/coverage --all --statements=86 --lines=86 --functions=70 --branches=50 --check-coverage --reporter=lcov ../node_modules/.bin/mocha --opts mocha.opts"
   },
   "author": "Régis Gaidot",
   "license": "MIT"

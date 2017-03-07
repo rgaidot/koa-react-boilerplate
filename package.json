@@ -6,6 +6,7 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^3.4.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2"
   }
 }
