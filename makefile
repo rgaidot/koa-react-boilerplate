@@ -15,7 +15,8 @@ codeclimate:
 	@$(MAKE) codeclimate-api
 	@$(MAKE) codeclimate-frontend
 
-run: run-api run-frontend
+run:
+	@./node_modules/.bin/concurrently "cd api && npm start" "cd frontend && npm start"
 
 install-dockers:
 	@if which docker > /dev/null; then\
@@ -25,6 +26,7 @@ install-dockers:
 
 install-npm:
 	@echo 'Installing NPM'
+	yarn
 	cd api && yarn
 	cd frontend && yarn
 
@@ -57,14 +59,6 @@ migrate:
 		--migrations-path ./api/db/migrations/ \
 		--config ./api/config/database.json
 
-run-api:
-	@echo 'Start API'
-	cd api && npm start
-
-run-frontend:
-	@echo 'Start Frontend'
-	cd frontend && npm start
-
 test-api:
 	@echo 'Start API Tests'
 	cd api && npm test
@@ -87,5 +81,6 @@ build-frontend:
 
 clean:
 	@echo 'Delete node_modules directory'
+	rm -rf node_modules
 	rm -rf api/node_modules
 	rm -rf frontend/node_modules

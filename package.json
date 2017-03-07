@@ -1,0 +1,10 @@
+{
+  "name": "koa-react-boilerplate",
+  "version": "0.1.0",
+  "description": "Koa React Boilerplate",
+  "author": "Régis Gaidot",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^3.4.0"
+  }
+}

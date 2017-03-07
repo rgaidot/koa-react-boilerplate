@@ -2,3 +2,4 @@ node_modules
 frontend/public/assets/*
 tests/
 .nyc_output
+npm-debug.log
