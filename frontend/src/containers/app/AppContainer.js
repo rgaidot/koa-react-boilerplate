@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import config from '../../config';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import config from '../../../config';
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 
 export class AppContainer extends Component {
     render() {

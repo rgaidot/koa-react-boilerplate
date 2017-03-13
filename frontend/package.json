@@ -4,7 +4,7 @@
   "description": "Koa RESTful Front",
   "main": "index.js",
   "dependencies": {
-    "antd": "~2.5.0",
+    "antd": "^2.8.1",
     "inflection": "~1.10.0",
     "quill": "~1.1.5",
     "react": "~15.3.2",

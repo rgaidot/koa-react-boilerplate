@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import { default as AppContainer } from './containers/AppContainer';
-import HomeContainer from './containers/HomeContainer';
-import NotFoundContainer from './containers/NotFoundContainer';
+import { default as AppContainer } from './containers/app/AppContainer';
+import HomeContainer from './containers/home/HomeContainer';
+import NotFoundContainer from './containers/app/NotFoundContainer';
 
 const routes = (
     <Route component={AppContainer}>
