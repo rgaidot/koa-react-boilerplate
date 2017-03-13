@@ -1,7 +1,7 @@
 import request from 'supertest';
 import config from 'config';
 
-import app from '../../../../app';
+import app from '../../../app';
 
 describe('/api', () => {
     it('/v1', (done) => {

@@ -47,8 +47,10 @@
     "json-loader": "~0.5.4",
     "less": "2.7.1",
     "less-loader": "2.2.3",
+    "mocha": "^3.2.0",
     "node-sass": "~3.10.1",
     "nsp": "^2.6.2",
+    "nyc": "^10.1.2",
     "postcss-loader": "1.2.1",
     "react-addons-test-utils": "~15.3.2",
     "redux-mock-store": "^1.2.2",
@@ -61,7 +63,7 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server",
-    "test": "NODE_ENV=test ../node_modules/.bin/nyc --report-dir=../tests/frontend/coverage --all --statements=86 --lines=86 --functions=70 --branches=50 --check-coverage --reporter=lcov ../node_modules/.bin/mocha --opts mocha.opts"
+    "test": "NODE_ENV=test ./node_modules/.bin/nyc --report-dir=../tests/frontend/coverage --all --statements=86 --lines=86 --functions=70 --branches=50 --check-coverage --reporter=lcov ./node_modules/.bin/mocha --opts mocha.opts"
   },
   "author": "Régis Gaidot",
   "license": "MIT"
