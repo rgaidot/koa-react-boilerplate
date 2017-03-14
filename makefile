@@ -22,6 +22,7 @@ install-dockers:
 	@if which docker > /dev/null; then\
 		@echo "Installing Docker images";\
 		docker run -d -p 5432:5432 postgres;\
+		docker pull codeclimate/codeclimate;\
 	fi
 
 install-npm:
@@ -69,11 +70,23 @@ test-frontend:
 
 codeclimate-api:
 	@echo 'Codeclimate API'
-	cd api && codeclimate analyze
+	docker run \
+		-ti --rm \
+  	--env CODECLIMATE_CODE=$(PWD)/api/ \
+  	-v $(PWD)/api/:/code \
+  	-v /var/run/docker.sock:/var/run/docker.sock \
+  	-v /tmp/cc:/tmp/cc \
+  	codeclimate/codeclimate analyze
 
 codeclimate-frontend:
 	@echo 'Codeclimate Frontend'
-	cd frontend && codeclimate analyze
+	docker run \
+		-ti --rm \
+  	--env CODECLIMATE_CODE=$(PWD)/frontend/ \
+  	-v $(PWD)/frontend/:/code \
+  	-v /var/run/docker.sock:/var/run/docker.sock \
+  	-v /tmp/cc:/tmp/cc \
+  	codeclimate/codeclimate analyze
 
 build-frontend:
 	@rm -rf ./frontend/public/assets/* || true
