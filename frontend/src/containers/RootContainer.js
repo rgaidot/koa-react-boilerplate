@@ -5,7 +5,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import routes from '../routes';
 
-const Root = ({ store }) => {
+const RootContainer = ({ store }) => {
     const history = syncHistoryWithStore(hashHistory, store);
 
     return (
@@ -15,8 +15,8 @@ const Root = ({ store }) => {
     );
 };
 
-Root.propTypes = {
+RootContainer.propTypes = {
     store: PropTypes.object.isRequired,
 };
 
-export default Root;
+export default RootContainer;

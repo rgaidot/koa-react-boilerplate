@@ -1,27 +1,25 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import config from '../../../config';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 
-export class AppContainer extends Component {
-    render() {
-        const {
-            children,
-            title,
-        } = this.props;
+const AppContainer = (props) => {
+    const {
+        children,
+        title,
+    } = props;
 
-        return (
-            <div key="AppContainer" className="AppContainer">
-                <Helmet title={title} />
-                <Header title={title} />
-                <div className="main-wrapper">{children}</div>
-                <Footer />
-            </div>
-        );
-    }
-}
+    return (
+        <div key="AppContainer" className="AppContainer">
+            <Helmet title={title} />
+            <Header title={title} />
+            <div className="main-wrapper">{children}</div>
+            <Footer />
+        </div>
+    );
+};
 
 AppContainer.propTypes = {
     children: PropTypes.node,
