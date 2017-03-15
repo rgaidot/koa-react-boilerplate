@@ -12,12 +12,10 @@ module.exports = {
         new HotModuleReplacementPlugin(),
     ],
     devServer: {
-        colors: true,
         contentBase: HTML_DIR,
         historyApiFallback: true,
         hot: true,
         inline: true,
-        progress: false,
         open: true,
     },
     module: {
@@ -34,11 +32,31 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loader: 'style!css!postcss!less',
+                use: [
+                    'style-loader?sourceMap',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    'postcss-loader?sourceMap',
+                    'less-loader?sourceMap',
+                ],
             },
             {
-                test: /\.(scss|sass)$/,
-                loader: 'style!css!postcss!sass?outputStyle=expanded',
+                test: /\.scss$/,
+                use: [
+                    'style-loader?sourceMap',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    'postcss-loader?sourceMap',
+                    'sass-loader?sourceMap',
+                ],
             },
         ],
     },

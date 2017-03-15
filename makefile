@@ -27,9 +27,16 @@ install-dockers:
 
 install-npm:
 	@echo 'Installing NPM'
+	curl -o- -L https://yarnpkg.com/install.sh | bash
 	yarn
 	cd api && yarn
 	cd frontend && yarn
+
+bump-version-npm:
+	@echo 'Bump version NPM packages'
+	yarn
+	cd api && yarn upgrade
+	cd frontend && yarn upgrade
 
 create-database-for-dev:
 	@echo "Create database dev"

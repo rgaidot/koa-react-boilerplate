@@ -6,7 +6,7 @@ services:
   - postgresql
 
 node_js:
-    - '7.0.0'
+    - '7.6.0'
 
 cache:
     directories:
