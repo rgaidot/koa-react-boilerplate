@@ -53,6 +53,7 @@
     "less-loader": "^3.0.0",
     "mocha": "^3.2.0",
     "node-sass": "^4.5.0",
+    "npm-check": "^5.4.0",
     "nsp": "^2.6.2",
     "nyc": "^10.1.2",
     "postcss-loader": "^1.3.3",

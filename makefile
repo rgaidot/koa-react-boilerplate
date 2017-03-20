@@ -32,6 +32,12 @@ install-npm:
 	cd api && yarn
 	cd frontend && yarn
 
+npm-check:
+	@echo 'Check NPM for API'
+	@cd api && ./node_modules/.bin/npm-check -u
+	@echo 'Check NPM for Frontend'
+	@cd frontend && ./node_modules/.bin/npm-check -u
+
 bump-version-npm:
 	@echo 'Bump version NPM packages'
 	yarn
