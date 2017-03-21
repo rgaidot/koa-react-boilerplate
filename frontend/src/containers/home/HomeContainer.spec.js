@@ -6,7 +6,7 @@ import HomeContainer from './HomeContainer';
 describe('<HomeContainer />', () => {
     it('render component', () => {
         const wrapper = shallow(
-            <HomeContainer />
+            <HomeContainer />,
         );
 
         expect(wrapper.find('p').html()).toBe('<p>foo</p>');

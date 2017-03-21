@@ -6,7 +6,7 @@ import NotFoundContainer from './NotFoundContainer';
 describe('<NotFoundContainer />', () => {
     it('render component', () => {
         const wrapper = shallow(
-            <NotFoundContainer />
+            <NotFoundContainer />,
         );
 
         expect(wrapper.find('h2').html()).toBe('<h2>404</h2>');

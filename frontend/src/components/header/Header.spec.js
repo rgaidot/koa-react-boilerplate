@@ -8,7 +8,7 @@ describe('Header', () => {
         const title = 'foo';
 
         const wrapper = shallow(
-            <Header title={title} />
+            <Header title={title} />,
         );
 
         expect(wrapper.find('h1').html()).toBe('<h1>foo</h1>');
