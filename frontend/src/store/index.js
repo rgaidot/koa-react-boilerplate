@@ -1,11 +1,11 @@
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
 export default function configureStore(rootReducer, initialState) {
     const middlewares = applyMiddleware(
-        routerMiddleware(hashHistory),
+        routerMiddleware(browserHistory),
         thunk,
     );
 

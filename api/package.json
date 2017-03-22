@@ -17,7 +17,7 @@
     "config": "^1.25.1",
     "kcors": "~1.3.0",
     "koa": "^2.2.0",
-    "koa-bodyparser": "^4.1.0",
+    "koa-bodyparser": "^4.2.0",
     "koa-helmet": "^3.1.0",
     "koa-mount": "~2.0.0",
     "koa-router": "~7.0.1",
@@ -28,19 +28,19 @@
     "winston": "~2.3.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "babel-plugin-istanbul": "^4.0.0",
+    "babel-eslint": "^7.2.0",
+    "babel-plugin-istanbul": "^4.1.1",
     "eslint": "^3.18.0",
     "eslint-plugin-import": "^2.2.0",
     "istanbul": "~0.4.5",
-    "jsinspect": "^0.9.0",
+    "jsinspect": "^0.10.1",
     "mocha": "^3.2.0",
     "nodemon": "~1.11.0",
     "npm-check": "^5.4.0",
     "nsp": "^2.6.2",
     "nyc": "^10.1.2",
     "supertest": "^3.0.0",
-    "webpack": "^2.2.1",
+    "webpack": "^2.3.1",
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
