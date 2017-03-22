@@ -81,6 +81,12 @@ test-frontend:
 	@echo 'Start Frontend Tests'
 	cd frontend && npm test
 
+test-frontend-functional: build-frontend-test
+
+
+build-frontend-test:
+	@./frontend/node_modules/.bin/webpack
+
 codeclimate-api:
 	@echo 'Codeclimate API'
 	docker run \
