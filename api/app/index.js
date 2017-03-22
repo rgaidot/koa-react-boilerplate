@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import Koa from 'koa';
 import koaMount from 'koa-mount';
 import helmet from 'koa-helmet';
@@ -18,7 +16,7 @@ import notFound from './middlewares/notFound';
 
 import db from '../config/initializers/sequelize';
 
-import api from './api';
+import v1 from './controllers/v1/index';
 
 const app = new Koa()
     .use(cors())
@@ -26,7 +24,7 @@ const app = new Koa()
     .use(logger)
     .use(notFound)
     .use(bodyParser())
-    .use(koaMount('/', api));
+    .use(v1.middleware());
 
 const main = async () => {
     const dbService = await db;
