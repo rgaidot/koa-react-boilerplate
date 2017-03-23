@@ -1,7 +1,7 @@
-import request from 'supertest';
-import config from 'config';
+import request from 'supertest'
+import config from 'config'
 
-import app from '../../../app';
+import app from '../../../app'
 
 describe('/api', () => {
     it('/v1', (done) => {
@@ -12,6 +12,6 @@ describe('/api', () => {
               appName: config.appName,
               revision: 'development',
               version: config.version,
-          }, done);
-    });
-});
+          }, done)
+    })
+})

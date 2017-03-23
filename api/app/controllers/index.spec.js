@@ -1,7 +1,7 @@
-import request from 'supertest';
-import config from 'config';
+import request from 'supertest'
+import config from 'config'
 
-import app from '../../app';
+import app from '../../app'
 
 it('/', (done) => {
     request(app.listen())
@@ -10,5 +10,5 @@ it('/', (done) => {
       .expect(404, {
           error: 404,
           message: 'Not found',
-      }, done);
-});
+      }, done)
+})

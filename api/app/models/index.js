@@ -1,2 +1,2 @@
-import client from '../../config/initializers/sequelize';
-module.exports = client.models;
+import client from '../../config/initializers/sequelize'
+module.exports = client.models
