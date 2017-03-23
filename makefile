@@ -31,6 +31,12 @@ install-npm:
 	yarn
 	cd api && yarn
 	cd frontend && yarn
+ifeq ($(NODE_ENV), $(filter $(NODE_ENV),development test))
+	make install-selenium
+endif
+
+install-selenium:
+	./frontend/node_modules/.bin/selenium-standalone install --version=2.50.1 --drivers.chrome.version=2.24
 
 npm-check:
 	@echo 'Check NPM for API'
@@ -83,9 +89,11 @@ test-frontend:
 
 test-frontend-functional: build-frontend-test
 
+test-e2e:
+	NODE_ENV=test @$(MAKE) build
 
 build-frontend-test:
-	@./frontend/node_modules/.bin/webpack
+	cd frontend && ./node_modules/.bin/webpack ./webpack/webpack.config.babel.js
 
 codeclimate-api:
 	@echo 'Codeclimate API'

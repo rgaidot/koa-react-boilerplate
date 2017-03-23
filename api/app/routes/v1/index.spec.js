@@ -3,10 +3,20 @@ import config from 'config'
 
 import app from '../../../app'
 
-describe('/api', () => {
+describe('/v1', () => {
+    it('/', (done) => {
+        request(app.listen())
+          .get('/')
+          .expect('Content-Type', /json/)
+          .expect(404, {
+              error: 404,
+              message: 'Not found',
+          }, done)
+    })
+
     it('/v1', (done) => {
         request(app.listen())
-          .get('/api/v1')
+          .get('/v1')
           .expect('Content-Type', /json/)
           .expect(200, {
               appName: config.appName,
