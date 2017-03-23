@@ -16,7 +16,7 @@ codeclimate:
 	@$(MAKE) codeclimate-frontend
 
 run:
-	@./node_modules/.bin/concurrently "cd api && npm start" "cd frontend && npm start"
+	@./node_modules/.bin/concurrently "cd api && yarn start" "cd frontend && yarn start"
 
 install-dockers:
 	@if which docker > /dev/null; then\
@@ -75,11 +75,11 @@ migrate:
 
 test-api:
 	@echo 'Start API Tests'
-	cd api && npm test
+	cd api && yarn test
 
 test-frontend:
 	@echo 'Start Frontend Tests'
-	cd frontend && npm test
+	cd frontend && yarn test
 
 test-frontend-functional: build-frontend-test
 
