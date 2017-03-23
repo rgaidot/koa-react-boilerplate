@@ -58,6 +58,9 @@
       }
     },
     "coverageDirectory": "../tests/coverage/api",
+    "coveragePathIgnorePatterns": [
+      "./index.js"
+    ],
     "unmockedModulePathPatterns": [
       "node_modules/supertest"
     ],
