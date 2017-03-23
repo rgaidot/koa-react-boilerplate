@@ -11,6 +11,6 @@ describe('Header', () => {
             <Header title={title} />,
         )
 
-        expect(wrapper.find('h1').html()).toBe('<h1>foo</h1>')
+        expect(wrapper.find('h1').html()).toBe('<h1 class="Title">foo</h1>')
     })
 })

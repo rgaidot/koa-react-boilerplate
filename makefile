@@ -31,12 +31,6 @@ install-npm:
 	yarn
 	cd api && yarn
 	cd frontend && yarn
-ifeq ($(NODE_ENV), $(filter $(NODE_ENV),development test))
-	make install-selenium
-endif
-
-install-selenium:
-	./frontend/node_modules/.bin/selenium-standalone install --version=2.50.1 --drivers.chrome.version=2.24
 
 npm-check:
 	@echo 'Check NPM for API'

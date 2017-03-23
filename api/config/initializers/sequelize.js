@@ -3,7 +3,7 @@ import Sequelize from 'sequelize'
 import { readdirSync } from 'fs'
 
 const ENV = process.env.NODE_ENV || 'development'
-const modelsPath = path.join(__dirname, '..', '..', 'app', '/models')
+const modelsPath = path.join(__dirname, '..', '..', 'src', '/models')
 const config = require(path.join(__dirname, '..', 'database.json'))[ENV]
 const client = new Sequelize(config.database, config.username, config.password, config)
 

@@ -29,16 +29,15 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.0",
-    "babel-plugin-istanbul": "^4.1.1",
+    "babel-jest": "^19.0.0",
     "eslint": "^3.18.0",
     "eslint-plugin-import": "^2.2.0",
-    "istanbul": "~0.4.5",
+    "eslint-plugin-jest": "^19.0.1",
+    "jest": "^19.0.2",
     "jsinspect": "^0.10.1",
-    "mocha": "^3.2.0",
     "nodemon": "~1.11.0",
     "npm-check": "^5.4.0",
-    "nsp": "^2.6.2",
-    "nyc": "^10.1.2",
+    "regenerator-runtime": "^0.10.3",
     "supertest": "^3.0.0",
     "webpack": "^2.3.1",
     "webpack-dev-server": "^2.4.2"
@@ -46,13 +45,23 @@
   "scripts": {
     "lint": "eslint src test",
     "start": "./node_modules/.bin/nodemon --config ./config/nodemon.json",
-    "test": "NODE_ENV=test ./node_modules/.bin/nyc --report-dir=../tests/api/coverage --all --check-coverage --reporter=lcov ./node_modules/.bin/mocha --opts mocha.opts"
+    "test": "NODE_ENV=test ./node_modules/.bin/jest --notify --forceExit"
   },
-  "nyc": {
-    "lines": 50,
-    "statements": 50,
-    "functions": 50,
-    "branches": 50
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "coverageDirectory": "../tests/coverage/api",
+    "unmockedModulePathPatterns": [
+      "node_modules/supertest"
+    ],
+    "verbose": true
   },
   "author": "Régis Gaidot",
   "license": "MIT"

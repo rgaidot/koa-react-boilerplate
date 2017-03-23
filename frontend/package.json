@@ -9,8 +9,6 @@
   "dependencies": {
     "antd": "^2.8.2",
     "inflection": "^1.12.0",
-    "next": "^1.2.3",
-    "next-connect-redux": "^0.1.2",
     "quill": "^1.2.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -24,9 +22,9 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.0",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-import": "^1.1.0",
-    "babel-plugin-istanbul": "^4.1.1",
     "babel-plugin-transform-react-jsx": "^6.23.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",
@@ -35,7 +33,6 @@
     "babel-preset-es2017": "^6.16.0",
     "babel-preset-react": "^6.23.0",
     "babel-register": "^6.24.0",
-    "chai": "3.5.0",
     "css-loader": "^0.27.3",
     "enzyme": "^2.7.1",
     "eslint": "^3.18.0",
@@ -43,30 +40,27 @@
     "eslint-config-airbnb-base": "^11.1.1",
     "eslint-plugin-flowtype": "^2.30.4",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-mocha": "^4.9.0",
     "eslint-plugin-react": "^6.10.2",
-    "expect": "1.20.2",
+    "expect": "^1.20.2",
     "flow-bin": "^0.42.0",
     "graceful-fs": "^4.1.11",
+    "identity-obj-proxy": "^3.0.0",
     "ignore-styles": "5.0.1",
-    "istanbul": "~0.4.5",
+    "jest": "^19.0.2",
     "jsinspect": "^0.10.1",
     "json-loader": "~0.5.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.2",
-    "mocha": "^3.2.0",
     "node-sass": "^4.5.1",
     "npm-check": "^5.4.0",
-    "nsp": "^2.6.2",
-    "nyc": "^10.1.2",
     "postcss-loader": "^1.3.3",
     "react-addons-test-utils": "^15.4.2",
     "redux-mock-store": "^1.2.2",
+    "regenerator-runtime": "^0.10.3",
     "sass-loader": "^6.0.3",
     "scss": "0.2.4",
-    "selenium-standalone": "^6.1.0",
-    "selenium-webdriver": "^3.3.0",
     "style-loader": "^0.16.0",
     "stylelint": "^7.9.0",
     "webpack": "^2.3.1",
@@ -74,18 +68,24 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server",
-    "test": "NODE_ENV=test ./node_modules/.bin/nyc --report-dir=../tests/frontend/coverage --all --check-coverage --reporter=lcov ./node_modules/.bin/mocha --opts mocha.opts",
+    "test": "NODE_ENV=test ./node_modules/.bin/jest --notify  --forceExit",
     "flow": "./node_modules/.bin/flow; test $? -eq 0 -o $? -eq 2"
   },
-  "nyc": {
-    "lines": 50,
-    "statements": 50,
-    "functions": 50,
-    "branches": 50,
-    "exclude": [
-      "e2e",
-      "public"
-    ]
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "coverageDirectory": "../tests/coverage/frontend",
+    "moduleNameMapper": {
+      "\\.(less|sass|scss)$": "identity-obj-proxy"
+    },
+    "verbose": true
   },
   "author": "Régis Gaidot",
   "license": "MIT"
