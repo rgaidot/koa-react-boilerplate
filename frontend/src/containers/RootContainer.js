@@ -16,7 +16,7 @@ const RootContainer = ({ store }) => {
 }
 
 RootContainer.propTypes = {
-    store: PropTypes.object.isRequired, // eslint-disable-line
+    store: PropTypes.element.isRequired,
 }
 
 export default RootContainer
