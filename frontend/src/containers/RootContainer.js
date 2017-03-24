@@ -16,7 +16,7 @@ const RootContainer = ({ store }) => {
 }
 
 RootContainer.propTypes = {
-    store: PropTypes.element.isRequired,
+    store: PropTypes.shape({}).isRequired,
 }
 
 export default RootContainer
