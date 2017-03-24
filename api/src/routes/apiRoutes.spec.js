@@ -20,7 +20,7 @@ describe('apiRoutes tests', () => {
           .expect('Content-Type', /json/)
           .expect(200, {
               appName: config.appName,
-              revision: 'development',
+              environment: 'development',
               url: config.prefix,
               version: config.version,
           }, done)

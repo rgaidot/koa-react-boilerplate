@@ -4,8 +4,7 @@ export default class ApiController {
     static async index(ctx) {
         ctx.body = {
             appName: config.appName,
-            revision: process.env.APP_REVISION || 'development',
-            url: config.prefix,
+            environment: process.env.APP_environment || 'development',
             version: config.version
         }
 
