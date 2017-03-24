@@ -63,13 +63,13 @@ drop-database-for-test:
 generate-model:
 	@echo 'Creating the $(MODEL) model'
 	@./api/node_modules/.bin/sequelize model:create --name $(MODEL) \
-		--attributes foo:string  --models-path ./api/app/models/ \
+		--attributes foo:string  --models-path ./api/src/models/ \
 		--migrations-path ./api/db/migrations/
 
 migrate:
 	@echo 'Running Migrations'
 	@./api/node_modules/.bin/sequelize db:migrate \
-		--models-path ./api/app/models/ \
+		--models-path ./api/src/models/ \
 		--migrations-path ./api/db/migrations/ \
 		--config ./api/config/database.json
 
