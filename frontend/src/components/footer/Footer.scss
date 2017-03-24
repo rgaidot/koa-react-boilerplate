@@ -1,5 +1,10 @@
 :export {
-    Footer: Footer;
+    footer: footer;
+    version: version;
 }
 
-.Footer {}
+.footer {
+    .version {
+        font-size: .8rem;
+    }
+}

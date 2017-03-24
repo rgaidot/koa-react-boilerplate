@@ -3,7 +3,7 @@ import expect from 'expect'
 import { shallow } from 'enzyme'
 import Header from './Header'
 
-describe('Header', () => {
+describe('<Header />', () => {
     it('render component', () => {
         const title = 'foo'
 
@@ -11,6 +11,6 @@ describe('Header', () => {
             <Header title={title} />,
         )
 
-        expect(wrapper.find('h1').html()).toBe('<h1 class="Title">foo</h1>')
+        expect(wrapper.find('h1').html()).toBe('<h1 class="title">foo</h1>')
     })
 })

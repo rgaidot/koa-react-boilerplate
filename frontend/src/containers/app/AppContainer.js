@@ -12,7 +12,7 @@ const AppContainer = (props) => {
     } = props
 
     return (
-        <div key="AppContainer" className="AppContainer">
+        <div key="AppContainer" className="app-container">
             <Helmet title={title} />
             <Header title={title} />
             <div className="main-wrapper">{children}</div>

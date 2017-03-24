@@ -1,12 +1,12 @@
 :export {
-    Header: Header;
-    Title: Title;
+    header: header;
+    title: title;
 }
 
-.Header {
+.header {
   background: black;
 
-  .Title {
+  .title {
     color: white;
     font-size: 1.4rem;
     padding: 0 15px;
