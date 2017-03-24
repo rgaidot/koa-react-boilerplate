@@ -21,7 +21,7 @@ run:
 install-dockers:
 	@if which docker > /dev/null; then\
 		@echo "Installing Docker images";\
-		docker run -d -p 5432:5432 postgres;\
+		docker-compose up -d;\
 		docker pull codeclimate/codeclimate;\
 	fi
 
