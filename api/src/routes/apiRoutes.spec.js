@@ -1,11 +1,11 @@
 import request from 'supertest'
 import config from 'config'
 
-import app from '../../../src'
+import server from '../server'
 
-describe('/v1', () => {
+describe('apiRoutes tests', () => {
     it('/', (done) => {
-        request(app.listen())
+        request(server.listen())
           .get('/')
           .expect('Content-Type', /json/)
           .expect(404, {
@@ -15,12 +15,13 @@ describe('/v1', () => {
     })
 
     it('/v1', (done) => {
-        request(app.listen())
+        request(server.listen())
           .get('/v1')
           .expect('Content-Type', /json/)
           .expect(200, {
               appName: config.appName,
               revision: 'development',
+              url: config.prefix,
               version: config.version,
           }, done)
     })

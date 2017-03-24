@@ -16,7 +16,7 @@ import notFound from './middlewares/notFound'
 
 import db from '../config/initializers/sequelize'
 
-import v1 from './routes/v1/index'
+import v1 from './router'
 
 const app = new Koa()
     .use(cors())
