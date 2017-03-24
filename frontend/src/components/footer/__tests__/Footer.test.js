@@ -13,6 +13,6 @@ describe('<Footer />', () => {
             <Footer />,
         )
 
-        expect(wrapper.find('.version').html()).toBe('<p class="version">0.1.0</p>')
+        expect(wrapper.find('.version').html()).toBe(`<p class="version">${config.version}</p>`)
     })
 })
