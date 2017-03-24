@@ -1,7 +1,7 @@
 import request from 'supertest'
 import config from 'config'
 
-import server from '../server'
+import server from '../../server'
 
 describe('apiRoutes tests', () => {
     it('/', (done) => {

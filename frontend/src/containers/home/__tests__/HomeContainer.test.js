@@ -1,7 +1,7 @@
 import React from 'react'
 import expect from 'expect'
 import { shallow } from 'enzyme'
-import HomeContainer from './HomeContainer'
+import HomeContainer from '../HomeContainer'
 
 describe('<HomeContainer />', () => {
     it('render component', () => {

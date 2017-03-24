@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store'
 import createFragment from 'react-addons-create-fragment'
 import expect from 'expect'
 import { shallow } from 'enzyme'
-import AppContainer from './AppContainer'
+import AppContainer from '../AppContainer'
 
 const middlewares = []
 const mockStore = configureStore(middlewares)

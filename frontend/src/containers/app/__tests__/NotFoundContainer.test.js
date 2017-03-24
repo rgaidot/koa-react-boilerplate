@@ -1,7 +1,7 @@
 import React from 'react'
 import expect from 'expect'
 import { shallow } from 'enzyme'
-import NotFoundContainer from './NotFoundContainer'
+import NotFoundContainer from '../NotFoundContainer'
 
 describe('<NotFoundContainer />', () => {
     it('render component', () => {

@@ -81,13 +81,8 @@ test-frontend:
 	@echo 'Start Frontend Tests'
 	cd frontend && yarn test
 
-test-frontend-functional: build-frontend-test
-
 test-e2e:
-	NODE_ENV=test @$(MAKE) build
-
-build-frontend-test:
-	cd frontend && ./node_modules/.bin/webpack ./webpack/webpack.config.babel.js
+	@$(MAKE) build-frontend
 
 codeclimate-api:
 	@echo 'Codeclimate API'
