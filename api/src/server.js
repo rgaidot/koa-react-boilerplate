@@ -13,6 +13,7 @@ import winston from 'winston'
 import config from 'config'
 import logger from './middlewares/logger'
 import notFound from './middlewares/notFound'
+import rateLimit from './middlewares/rateLimit'
 
 import db from '../config/initializers/sequelize'
 
@@ -22,6 +23,7 @@ const app = new Koa()
     .use(cors())
     .use(helmet())
     .use(logger)
+    .use(rateLimit)
     .use(notFound)
     .use(bodyParser())
     .use(v1.middleware())
