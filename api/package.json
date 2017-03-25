@@ -23,24 +23,22 @@
     "koa-router": "~7.0.1",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^3.30.2",
-    "sequelize-cli": "^2.6.0",
+    "sequelize": "^3.30.3",
+    "sequelize-cli": "^2.7.0",
     "winston": "~2.3.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.0",
+    "babel-eslint": "^7.2.1",
     "babel-jest": "^19.0.0",
     "eslint": "^3.18.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jest": "^19.0.1",
     "jest": "^19.0.2",
-    "jsinspect": "^0.10.1",
+    "jsinspect": "^0.11.4",
     "nodemon": "~1.11.0",
     "npm-check": "^5.4.0",
     "regenerator-runtime": "^0.10.3",
-    "supertest": "^3.0.0",
-    "webpack": "^2.3.1",
-    "webpack-dev-server": "^2.4.2"
+    "supertest": "^3.0.0"
   },
   "scripts": {
     "lint": "eslint src test",

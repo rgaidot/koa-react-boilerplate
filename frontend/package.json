@@ -12,7 +12,7 @@
     "quill": "^1.2.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-helmet": "^5.0.0",
+    "react-helmet": "^5.0.1",
     "react-redux": "^5.0.3",
     "react-router": "^3.0.2",
     "react-router-redux": "~4.0.7",
@@ -21,7 +21,7 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.0",
+    "babel-eslint": "^7.2.1",
     "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-import": "^1.1.0",
@@ -34,7 +34,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-register": "^6.24.0",
     "css-loader": "^0.27.3",
-    "enzyme": "^2.7.1",
+    "enzyme": "^2.8.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-airbnb-base": "^11.1.1",
@@ -49,7 +49,7 @@
     "identity-obj-proxy": "^3.0.0",
     "ignore-styles": "5.0.1",
     "jest": "^19.0.2",
-    "jsinspect": "^0.10.1",
+    "jsinspect": "^0.11.4",
     "json-loader": "~0.5.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.2",
@@ -64,7 +64,7 @@
     "scss": "0.2.4",
     "style-loader": "^0.16.0",
     "stylelint": "^7.9.0",
-    "webpack": "^2.3.1",
+    "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
