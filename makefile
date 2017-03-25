@@ -29,8 +29,8 @@ install-npm:
 	@echo 'Installing NPM'
 	curl -o- -L https://yarnpkg.com/install.sh | bash
 	yarn
-	cd api && yarn
-	cd frontend && yarn
+	cd api && yarn --pure-lockfile
+	cd frontend && yarn --pure-lockfile
 
 npm-check:
 	@echo 'Check NPM for API'
