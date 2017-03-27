@@ -1,13 +1,13 @@
 {
     "env": {
-        "browser": true,
+        "es6": true,
         "node": true,
-        "protractor": true,
+        "jest": true,
     },
     "parser": "babel-eslint",
     "rules": {
         "semi": 0,
-        "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.spec.js"] }],
+        "import/no-extraneous-dependencies": "off",
         "indent": ["error", 4]
     },
 }

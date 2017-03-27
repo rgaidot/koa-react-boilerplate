@@ -7,8 +7,6 @@ import config from '../../../../config'
 
 describe('<Footer />', () => {
     it('render component', () => {
-        const title = 'foo'
-
         const wrapper = shallow(
             <Footer />,
         )
