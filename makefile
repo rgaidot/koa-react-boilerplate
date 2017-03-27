@@ -68,10 +68,10 @@ generate-model:
 
 migrate:
 	@echo 'Running Migrations'
-	@./api/node_modules/.bin/sequelize db:migrate \
+	@./api/node_modules/.bin/sequelize --harmony_modules db:migrate \
 		--models-path ./api/src/models/ \
 		--migrations-path ./api/db/migrations/ \
-		--config ./api/config/database.json
+		--config ./api/config/database.json \
 
 test-api:
 	@echo 'Start API Tests'

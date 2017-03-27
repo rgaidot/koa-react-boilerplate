@@ -2,3 +2,4 @@ node_modules
 frontend/public/assets/*
 tests/
 npm-debug.log
+.DS_Store

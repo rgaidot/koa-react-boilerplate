@@ -4,7 +4,7 @@ import apiRoutes from './routes/apiRoutes'
 
 const router = new KoaRouter({
     prefix: apiRoutes.prefix
-});
+})
 
 router.use(apiRoutes.middleware())
 
