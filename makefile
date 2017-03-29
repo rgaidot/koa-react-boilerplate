@@ -8,6 +8,8 @@ install: install-npm install-dockers create-database-for-dev
 test:
 	@$(MAKE) drop-database-for-test
 	@$(MAKE) create-database-for-test
+	@$(MAKE) migrate
+	@$(MAKE) load-seeds
 	@$(MAKE) test-api
 	@$(MAKE) test-frontend
 
@@ -66,12 +68,24 @@ generate-model:
 		--attributes foo:string  --models-path ./api/src/models/ \
 		--migrations-path ./api/db/migrations/
 
+generate-seeder:
+	@echo 'Creating the $(MODEL) seeder'
+	@./api/node_modules/.bin/sequelize seed:create --name $(MODEL) \
+		--seeders-path ./api/db/seeders/ \
+		--config ./api/config/database.json
+
 migrate:
 	@echo 'Running Migrations'
 	@./api/node_modules/.bin/sequelize --harmony_modules db:migrate \
 		--models-path ./api/src/models/ \
 		--migrations-path ./api/db/migrations/ \
 		--config ./api/config/database.json \
+
+load-seeds:
+	@echo 'Running seeds'
+	@./api/node_modules/.bin/sequelize db:seed:all \
+		--seeders-path ./api/db/seeders/ \
+		--config ./api/config/database.json
 
 test-api:
 	@echo 'Start API Tests'
