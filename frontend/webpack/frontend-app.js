@@ -1,5 +1,7 @@
 import { resolve } from 'path'
 import { HotModuleReplacementPlugin } from 'webpack'
+import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin'
+
 
 const APP_DIR = resolve(__dirname, '..', 'public')
 const BUILD_DIR = resolve(__dirname, '..', 'src')
@@ -10,6 +12,7 @@ module.exports = {
     entry: resolve(BUILD_DIR, 'index.js'),
     plugins: [
         new HotModuleReplacementPlugin(),
+        new FriendlyErrorsWebpackPlugin(),
     ],
     devServer: {
         contentBase: HTML_DIR,
@@ -17,6 +20,7 @@ module.exports = {
         hot: true,
         inline: true,
         open: true,
+        quiet: true,
     },
     module: {
         loaders: [
