@@ -1,6 +1,6 @@
 {
   "name": "koa-restful-front",
-  "version": "0.2.0",
+  "version": "v0.3.0",
   "description": "Koa RESTful Front",
   "main": "index.js",
   "engines": {
@@ -71,7 +71,8 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server",
     "test": "NODE_ENV=test ./node_modules/.bin/jest --notify  --forceExit",
-    "flow": "./node_modules/.bin/flow; test $? -eq 0 -o $? -eq 2"
+    "flow": "./node_modules/.bin/flow; test $? -eq 0 -o $? -eq 2",
+    "release": "yarn version --no-git-tag-version"
   },
   "jest": {
     "collectCoverage": true,

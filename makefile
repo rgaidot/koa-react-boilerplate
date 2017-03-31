@@ -29,8 +29,9 @@ install-dockers:
 
 install-npm:
 	@echo 'Installing NPM'
-	curl -o- -L https://yarnpkg.com/install.sh | bash
-	yarn
+	@curl -o- -L https://yarnpkg.com/install.sh | bash
+	@yarn
+	@yarn config set version-git-message "v%s"
 	cd api && yarn --pure-lockfile
 	cd frontend && yarn --pure-lockfile
 
@@ -121,6 +122,16 @@ codeclimate-frontend:
 build-frontend:
 	@rm -rf ./frontend/public/assets/* || true
 	@cd frontend && ./node_modules/.bin/webpack --progress -p -d
+
+release: release-api release-frontend
+
+release-api:
+	@echo 'Release API'
+	@cd api && yarn release
+
+release-frontend:
+	@echo 'Release frontend'
+	@cd frontend && yarn release
 
 clean:
 	@echo 'Delete node_modules directory'
