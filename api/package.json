@@ -1,6 +1,6 @@
 {
   "name": "koa-restfull-api",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Koa RESTful API",
   "main": "index.js",
   "engines": {
@@ -46,7 +46,8 @@
   "scripts": {
     "lint": "eslint src test",
     "start": "./node_modules/.bin/nodemon --config ./config/nodemon.json",
-    "test": "NODE_ENV=test ./node_modules/.bin/jest --notify --forceExit"
+    "test": "NODE_ENV=test ./node_modules/.bin/jest --notify --forceExit",
+    "release": "yarn version"
   },
   "jest": {
     "collectCoverage": true,
