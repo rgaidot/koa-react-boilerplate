@@ -6,7 +6,9 @@ import cluster from 'cluster'
 import os from 'os'
 
 import bodyParser from 'koa-bodyparser'
+import compress from 'koa-compress'
 import cors from 'kcors'
+import etag from 'koa-etag'
 import chalk from 'chalk'
 import winston from 'winston'
 
@@ -21,6 +23,8 @@ import v1 from './router'
 
 const app = new Koa()
     .use(cors())
+    .use(compress())
+    .use(etag())
     .use(helmet())
     .use(logger)
     .use(rateLimit)
