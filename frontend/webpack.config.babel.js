@@ -1,5 +1,3 @@
-import frontendApp from './webpack/frontend-app'
+import frontendApp from './webpack/frontend-app';
 
-export default [
-    frontendApp,
-]
+export default [frontendApp];

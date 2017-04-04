@@ -14,6 +14,7 @@ cache:
         - node_modules
 
 before_script:
+    - export PATH="$HOME/.yarn/bin:$PATH"
     - export NODE_ENV=test
     - export CXX="g++-6"
     - sleep 3

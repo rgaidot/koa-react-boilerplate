@@ -3,19 +3,19 @@
 PGUSER ?= postgres
 PGHOST ?= 127.0.0.1
 
-install: install-npm install-dockers create-database-for-dev
+install: install-npm install-dockers
 
 test:
-	@$(MAKE) drop-database-for-test
-	@$(MAKE) create-database-for-test
-	@$(MAKE) migrate
-	@$(MAKE) load-seeds
-	@$(MAKE) test-api
-	@$(MAKE) test-frontend
+	@$(MAKE) -C api drop-database-for-test
+	@$(MAKE) -C api create-database-for-test
+	@$(MAKE) -C api migrate
+	@$(MAKE) -C api load-seeds
+	@$(MAKE) -C api test
+	@$(MAKE) -C frontend test
 
 codeclimate:
-	@$(MAKE) codeclimate-api
-	@$(MAKE) codeclimate-frontend
+	@$(MAKE) -C api codeclimate
+	@$(MAKE) -C frontend codeclimate
 
 run:
 	@./node_modules/.bin/concurrently "cd api && yarn start" "cd frontend && yarn start"
@@ -28,113 +28,71 @@ install-dockers:
 	fi
 
 install-npm:
-	@echo 'Installing NPM'
 	@curl -o- -L https://yarnpkg.com/install.sh | bash
 	@yarn
 	@yarn config set version-git-message "v%s"
-	cd api && yarn --pure-lockfile
-	cd frontend && yarn --pure-lockfile
+	@$(MAKE) -C api install-npm
+	@$(MAKE) -C frontend install-npm
 
 npm-check:
-	@echo 'Check NPM for API'
-	@cd api && ./node_modules/.bin/npm-check -u
-	@echo 'Check NPM for Frontend'
-	@cd frontend && ./node_modules/.bin/npm-check -u
+	@$(MAKE) -C api npm-check
+	@$(MAKE) -C frontend npm-check
 
 bump-version-npm:
-	@echo 'Bump version NPM packages'
-	yarn
-	cd api && yarn upgrade
-	cd frontend && yarn upgrade
+	@$(MAKE) -C api npm-check
+	@$(MAKE) -C frontend npm-check
 
 create-database-for-dev:
-	@echo "Create database dev"
-	@createdb --user=${PGUSER} --host=${PGHOST} koa-restfull-db_dev || true
+	@$(MAKE) -C api create-database-for-dev
 
 drop-database-for-dev:
-	@echo "Drop database dev"
-	@dropdb --user=${PGUSER} --host=${PGHOST} koa-restfull-db_dev || true
+	@$(MAKE) -C api drop-database-for-dev
 
 create-database-for-test:
-	@echo "Create database test"
-	@createdb --user=${PGUSER} --host=${PGHOST} koa-restfull-db_test || true
+	@$(MAKE) -C api create-database-for-test
 
 drop-database-for-test:
-	@echo "Drop database test"
-	@dropdb --user=${PGUSER} --host=${PGHOST} koa-restfull-db_test || true
+	@$(MAKE) -C api drop-database-for-test
 
 generate-model:
-	@echo 'Creating the $(MODEL) model'
-	@./api/node_modules/.bin/sequelize model:create --name $(MODEL) \
-		--attributes foo:string  --models-path ./api/src/models/ \
-		--migrations-path ./api/db/migrations/
+	@$(MAKE) -C api generate-model
 
 generate-seeder:
-	@echo 'Creating the $(MODEL) seeder'
-	@./api/node_modules/.bin/sequelize seed:create --name $(MODEL) \
-		--seeders-path ./api/db/seeders/ \
-		--config ./api/config/database.json
+	@$(MAKE) -C api generate-seeder
 
 migrate:
-	@echo 'Running Migrations'
-	@./api/node_modules/.bin/sequelize --harmony_modules db:migrate \
-		--models-path ./api/src/models/ \
-		--migrations-path ./api/db/migrations/ \
-		--config ./api/config/database.json \
+	@$(MAKE) -C api migrate
 
 load-seeds:
-	@echo 'Running seeds'
-	@./api/node_modules/.bin/sequelize db:seed:all \
-		--seeders-path ./api/db/seeders/ \
-		--config ./api/config/database.json
+	@$(MAKE) -C api load-seeds
 
 test-api:
-	@echo 'Start API Tests'
-	cd api && yarn test
+	@$(MAKE) -C api test
 
 test-frontend:
-	@echo 'Start Frontend Tests'
-	cd frontend && yarn test
-
-test-e2e:
-	@$(MAKE) build-frontend
+	@$(MAKE) -C frontend test
 
 codeclimate-api:
-	@echo 'Codeclimate API'
-	docker run \
-		-ti --rm \
-  	--env CODECLIMATE_CODE=$(PWD)/api/ \
-  	-v $(PWD)/api/:/code \
-  	-v /var/run/docker.sock:/var/run/docker.sock \
-  	-v /tmp/cc:/tmp/cc \
-  	codeclimate/codeclimate analyze
+	@$(MAKE) -C api codeclimate-api
+
 
 codeclimate-frontend:
-	@echo 'Codeclimate Frontend'
-	docker run \
-		-ti --rm \
-  	--env CODECLIMATE_CODE=$(PWD)/frontend/ \
-  	-v $(PWD)/frontend/:/code \
-  	-v /var/run/docker.sock:/var/run/docker.sock \
-  	-v /tmp/cc:/tmp/cc \
-  	codeclimate/codeclimate analyze
+	@$(MAKE) -C frontend codeclimate-frontend
 
 build-frontend:
-	@rm -rf ./frontend/public/assets/* || true
-	@cd frontend && ./node_modules/.bin/webpack --progress -p -d
+	@$(MAKE) -C frontend build-frontend
 
-release: release-api release-frontend
+release:
+	@$(MAKE) -C api release
+	@$(MAKE) -C frontend release-frontend
 
 release-api:
-	@echo 'Release API'
-	@cd api && yarn release
+	@$(MAKE) -C api release-api
 
 release-frontend:
-	@echo 'Release frontend'
-	@cd frontend && yarn release
+	@$(MAKE) -C frontend release-frontend
 
 clean:
-	@echo 'Delete node_modules directory'
-	rm -rf node_modules
-	rm -rf api/node_modules
-	rm -rf frontend/node_modules
+	@rm -r ./node_modules
+	@$(MAKE) -C frontend clean
+	@$(MAKE) -C api clean
