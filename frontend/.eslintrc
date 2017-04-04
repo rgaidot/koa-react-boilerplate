@@ -1,18 +1,35 @@
 {
-    "env": {
-        "browser": true,
-        "node": true,
-        "es6": true,
-        "jest": true,
-    },
-    "extends": "airbnb",
-    "parser": "babel-eslint",
-    "rules": {
-        "semi": 0,
-        "import/no-extraneous-dependencies": "off",
-        "indent": ["error", 4],
-        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-        "react/jsx-indent": ["error", 4],
-        "react/jsx-indent-props": ["error", 4]
-    }
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "bracketSpacing": true,
+        "printWidth": 80,
+        "singleQuote": true,
+        "tabWidth": 4,
+        "trailingComma": true,
+        "jsxBracketSameLine": true
+      }
+    ],
+    "import/no-extraneous-dependencies": "off"
+  }
 }

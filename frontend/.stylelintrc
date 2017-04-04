@@ -1,10 +1,10 @@
 {
-    "extends": "stylelint-config-standard",
-    "rules": {
-        "indentation": "4",
-        "selector-pseudo-class-no-unknown": null,
-        "property-no-unknown": null,
-        "property-case": null,
-        "block-no-empty": null,
-    }
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": "4",
+    "selector-pseudo-class-no-unknown": null,
+    "property-no-unknown": null,
+    "property-case": null,
+    "block-no-empty": null
+  }
 }
