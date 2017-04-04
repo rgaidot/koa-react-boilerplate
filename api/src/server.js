@@ -1,18 +1,17 @@
 import Koa from 'koa'
-import koaMount from 'koa-mount'
 import helmet from 'koa-helmet'
 
 import cluster from 'cluster'
 import os from 'os'
 
 import bodyParser from 'koa-bodyparser'
+import chalk from 'chalk'
+import config from 'config'
 import compress from 'koa-compress'
 import cors from 'kcors'
 import etag from 'koa-etag'
-import chalk from 'chalk'
 import winston from 'winston'
 
-import config from 'config'
 import logger from './middlewares/logger'
 import notFound from './middlewares/notFound'
 import rateLimit from './middlewares/rateLimit'
@@ -34,6 +33,7 @@ const app = new Koa()
 
 const main = async () => {
     const dbService = await db
+
     if (cluster.isMaster && (process.env.NODE_ENV === 'production')) {
         os.cpus().forEach(() => cluster.fork())
 
