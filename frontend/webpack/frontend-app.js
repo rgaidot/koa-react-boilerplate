@@ -22,6 +22,7 @@ module.exports = {
         inline: true,
         open: true,
         quiet: true,
+        host: '0.0.0.0',
     },
     module: {
         loaders: [
