@@ -9,16 +9,27 @@ services:
 node_js:
     - '7.6.0'
 
+env:
+    - CXX=g++-6
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - gcc-6
+            - g++-6
+
 cache:
     directories:
         - node_modules
 
 before_script:
     - export TZ="Europe/Paris"
-    - export PATH="$HOME/.yarn/bin:$PATH"
     - export NODE_ENV=test
     - export CXX="g++-6"
     - sleep 3
+    - npm install -g node-gyp
     - npm install -g yarn
     - make install
 
