@@ -96,3 +96,26 @@ clean:
 	@rm -r ./node_modules
 	@$(MAKE) -C frontend clean
 	@$(MAKE) -C api clean
+
+prettier: prettier-api prettier-frontend
+
+prettier-frontend:
+	@echo 'Start prettier Frontend'
+	@./frontend/node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --jsx-bracket-same-line all --print-width 80 \
+		--tab-width 4 --color --bracket-spacing true  ./frontend/src/**/*.js
+
+prettier-api:
+	@echo 'Start prettier API'
+	@./api/node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --print-width 80 --tab-width 4 --color \
+		--bracket-spacing true  ./api/config/**/*.js
+	@./api/node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --print-width 80 --tab-width 4 --color \
+		--bracket-spacing true  ./api/common/**/*.js
+	@./api/node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --print-width 80 --tab-width 4 --color \
+		--bracket-spacing true  ./api/src/**/*.js
+	@./api/node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --print-width 80 --tab-width 4 --color \
+		--bracket-spacing true  ./api/lib/**/*.js
