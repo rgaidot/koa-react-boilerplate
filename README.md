@@ -21,6 +21,11 @@ make install
 make run
 ```
 
+### Lint sources codes
+```sh
+make prettier
+```
+
 ### Create model
 ```sh
 make generate-model MODEL=Foo
