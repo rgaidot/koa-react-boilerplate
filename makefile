@@ -5,12 +5,12 @@ PGHOST ?= 127.0.0.1
 
 install: install-npm install-dockers
 
-test:
-	@$(MAKE) -C api drop-database-for-test
-	@$(MAKE) -C api create-database-for-test
-	@$(MAKE) -C api migrate
-	@$(MAKE) -C api load-seeds
+test: test-api test-frontend
+
+test-api:
 	@$(MAKE) -C api test
+
+test-frontend:
 	@$(MAKE) -C frontend test
 
 codeclimate:
@@ -66,15 +66,8 @@ migrate:
 load-seeds:
 	@$(MAKE) -C api load-seeds
 
-test-api:
-	@$(MAKE) -C api test
-
-test-frontend:
-	@$(MAKE) -C frontend test
-
 codeclimate-api:
 	@$(MAKE) -C api codeclimate-api
-
 
 codeclimate-frontend:
 	@$(MAKE) -C frontend codeclimate-frontend

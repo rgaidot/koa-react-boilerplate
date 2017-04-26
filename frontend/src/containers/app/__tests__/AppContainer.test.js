@@ -12,9 +12,10 @@ describe('<AppContainer />', () => {
     it('render component', () => {
         const initialState = {};
         const store = mockStore(initialState);
+        const childrenFragment = {};
 
         const wrapper = shallow(
-            <AppContainer store={store} children={createFragment()} />,
+            <AppContainer store={store} children={createFragment(childrenFragment)} />,
         );
 
         expect(wrapper.find('AppContainer').length).toBe(1);

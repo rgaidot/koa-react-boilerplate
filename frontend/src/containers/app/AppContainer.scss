@@ -1,5 +1,14 @@
 :export {
-    app-container: app-container;
+    appContainer: app-container;
+    page: page;
 }
 
-.app-container { }
+.app-container {
+    background: #ececec;
+    .page {
+        background: #fff;
+        margin: 15px 50px;
+        padding: 5px 25px;
+        min-height: 100px;
+    }
+}
