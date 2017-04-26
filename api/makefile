@@ -10,7 +10,7 @@ test:
 	@$(MAKE) drop-database-for-test
 	@$(MAKE) create-database-for-test
 	@NODE_ENV=test $(MAKE) migrate
-	@NODE_ENV=test $(MAKE) load-seeds
+	@NODE_ENV=test $(MAKE) db-seeds
 	@NODE_ENV=test yarn test
 
 codeclimate:
@@ -72,11 +72,18 @@ migrate:
 		--migrations-path ./db/migrations/ \
 		--config ./config/database.json \
 
-load-seeds:
-	@echo 'API - Running seeds'
+db-seeds: db-seeds-down db-seeds-up
+	@echo 'Running seeds'
+
+db-seeds-down:
+	@./node_modules/.bin/sequelize db:seed:undo:all  \
+	--seeders-path ./db/seeders/ \
+	--config ./config/database.json
+
+db-seeds-up:
 	@./node_modules/.bin/sequelize db:seed:all \
-		--seeders-path ./db/seeders/ \
-		--config ./config/database.json
+	--seeders-path ./db/seeders/ \
+	--config ./config/database.json
 
 release: release-api
 	@echo 'API - Release API'
