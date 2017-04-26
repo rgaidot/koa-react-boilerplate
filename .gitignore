@@ -3,3 +3,4 @@ frontend/public/assets/*
 tests/
 npm-debug.log
 .DS_Store
+api/doc/

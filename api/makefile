@@ -18,7 +18,7 @@ codeclimate:
 	docker run \
 		-ti --rm \
   	--env CODECLIMATE_CODE=$(PWD)/api/ \
-  	-v $(PWD)/api/:/code \
+  	-v $(PWD)/:/code \
   	-v /var/run/docker.sock:/var/run/docker.sock \
   	-v /tmp/cc:/tmp/cc \
   	codeclimate/codeclimate analyze
@@ -92,3 +92,22 @@ release: release-api
 clean:
 	@echo 'API - Delete node_modules directory'
 	@rm -rf ./node_modules
+
+prettier:
+	@echo 'Start prettier API'
+	@./node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --print-width 80 --tab-width 4 --color \
+		--bracket-spacing true  ./config/**/*.js
+	@./node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --print-width 80 --tab-width 4 --color \
+		--bracket-spacing true  ./common/**/*.js
+	@./node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --print-width 80 --tab-width 4 --color \
+		--bracket-spacing true  ./src/**/*.js
+	@./node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --print-width 80 --tab-width 4 --color \
+		--bracket-spacing true  ./lib/**/*.js
+
+generate-doc:
+	@rm -rf ./doc
+	@./node_modules/.bin/apidoc -i ./src/controllers/  -o ./doc

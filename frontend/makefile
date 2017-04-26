@@ -11,7 +11,7 @@ codeclimate:
 	docker run \
 		-ti --rm \
   	--env CODECLIMATE_CODE=$(PWD)/frontend/ \
-  	-v $(PWD)/frontend/:/code \
+  	-v $(PWD)/:/code \
   	-v /var/run/docker.sock:/var/run/docker.sock \
   	-v /tmp/cc:/tmp/cc \
   	codeclimate/codeclimate analyze
@@ -42,3 +42,9 @@ release: release-frontend
 clean:
 	@echo 'Frontend - Delete node_modules directory'
 	@rm -r ./node_modules
+
+prettier:
+	@echo 'Start prettier Frontend'
+	@./node_modules/.bin/prettier --write --single-quote \
+		--trailing-comma all --jsx-bracket-same-line all --print-width 80 \
+		--tab-width 4 --color --bracket-spacing true  ./src/**/*.js
