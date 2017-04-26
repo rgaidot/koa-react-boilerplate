@@ -10,7 +10,7 @@ describe('<Footer />', () => {
         const wrapper = shallow(<Footer />);
 
         expect(wrapper.find('.version').html()).toBe(
-            `<p class="version">${config.version}</p>`,
+            `<p class="version">${config.appName} - ${config.version}</p>`,
         );
     });
 });
