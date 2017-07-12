@@ -7,9 +7,10 @@ const BUILD_DIR = resolve(__dirname, '..', 'src');
 const HTML_DIR = resolve(__dirname, '..', 'public');
 
 module.exports = {
-    devtool: process.env.NODE_ENV === 'development'
-        ? 'eval'
-        : 'cheap-module-source-map',
+    devtool:
+        process.env.NODE_ENV === 'development'
+            ? 'eval'
+            : 'cheap-module-source-map',
     entry: resolve(BUILD_DIR, 'index.js'),
     plugins: [
         new HotModuleReplacementPlugin(),

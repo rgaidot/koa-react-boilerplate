@@ -31,7 +31,7 @@ install-npm:
 
 npm-check:
 	@echo 'API - Check NPM'
-	.@/node_modules/.bin/npm-check -u
+	@./node_modules/.bin/npm-check -u
 
 bump-version-npm:
 	@echo 'API - Bump version NPM packages'

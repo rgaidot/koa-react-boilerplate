@@ -4,3 +4,4 @@ tests/
 npm-debug.log
 .DS_Store
 api/doc/
+yarn.lock

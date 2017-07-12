@@ -1,7 +1,7 @@
 {
     "port": 3001,
     "appName": "Koa Restfull API",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "jwt": {
         "secret": "secret",
         "passthrough": false
