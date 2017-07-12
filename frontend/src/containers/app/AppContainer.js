@@ -11,16 +11,15 @@ import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 
 const AppContainer = props => {
-    const {
-        children,
-        title,
-    } = props;
+    const { children, title } = props;
 
     return (
         <div key="AppContainer" className={style.appContainer}>
             <Helmet title={title} />
             <Header title={title} />
-            <div className={style.page}>{children}</div>
+            <div className={style.page}>
+                {children}
+            </div>
             <Footer />
         </div>
     );

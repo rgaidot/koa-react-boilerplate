@@ -1,21 +1,26 @@
 import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 
 export default function configureStore(rootReducer, initialState) {
-    const middlewares = applyMiddleware(
-        routerMiddleware(browserHistory),
-        thunk,
-    );
+    const sagaMiddleware = createSagaMiddleware();
+    const middlewares = [
+        applyMiddleware(
+            routerMiddleware(browserHistory),
+            sagaMiddleware,
+            thunk,
+        ),
+    ];
 
-    const devtools = window.devToolsExtension
-        ? window.devToolsExtension()
-        : f => f;
+    if (process.env.NODE_ENV === 'production') {
+        const devtools = window.devToolsExtension
+            ? window.devToolsExtension()
+            : f => f;
 
-    return createStore(
-        rootReducer,
-        initialState,
-        compose(middlewares, devtools),
-    );
+        middlewares.push(devtools);
+    }
+
+    return createStore(rootReducer, initialState, compose(...middlewares));
 }

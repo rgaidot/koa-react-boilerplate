@@ -1,9 +1,8 @@
 import React from 'react';
 
-const NotFoundContainer = () => (
+const NotFoundContainer = () =>
     <div key="NotFound" className="NotFound">
         <h2>404</h2>
-    </div>
-);
+    </div>;
 
 export default NotFoundContainer;

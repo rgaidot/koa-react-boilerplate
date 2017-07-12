@@ -6,14 +6,13 @@ import style from './Footer.scss';
 import config from '../../../config';
 
 const Footer = props => {
-    const {
-        appName,
-        version,
-    } = props;
+    const { appName, version } = props;
 
     return (
         <div className={style.footer}>
-            <p className={style.version}>{appName} - {version}</p>
+            <p className={style.version}>
+                {appName} - {version}
+            </p>
         </div>
     );
 };

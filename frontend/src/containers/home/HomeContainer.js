@@ -1,9 +1,8 @@
 import React from 'react';
 
-const HomeContainer = () => (
+const HomeContainer = () =>
     <div key="HomeContainer" className="HomeContainer">
         <p>foo</p>
-    </div>
-);
+    </div>;
 
 export default HomeContainer;
