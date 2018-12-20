@@ -6,7 +6,7 @@ import os from 'os';
 
 import bodyParser from 'koa-bodyparser';
 import chalk from 'chalk';
-import config from 'config';
+import { appName, port, version } from 'config';
 import compress from 'koa-compress';
 import cors from 'kcors';
 import etag from 'koa-etag';
@@ -32,14 +32,12 @@ const app = new Koa()
     .use(v1.middleware());
 
 const main = async () => {
-    const dbService = await db;
-
     if (cluster.isMaster && process.env.NODE_ENV === 'production') {
         os.cpus().forEach(() => cluster.fork());
 
         cluster.on('online', worker =>
-            winston.info(`Worker ${worker.process.pid} online.`));
-        cluster.on('message', message => winston.info(message));
+        winston.info(`Worker ${worker.process.pid} online.`));
+        cluster.on('message', message => logger.info(message));
         cluster.on('exit', (worker, signal) => {
             winston.info(
                 `Worker ${worker.process.pid} died (signal: ${signal}). Restarting...`
@@ -47,12 +45,9 @@ const main = async () => {
             cluster.fork();
         });
     } else {
-        await app.listen(config.port, () =>
-            winston.info(
-                chalk.black.bgGreen.bold(
-                    `${config.appName} - ${config.version}`
-                )
-            ));
+        await app.listen(port, () =>
+            winston.info(chalk.black.bgGreen.bold(`${appName} - ${version}`))
+        );
     }
 };
 
