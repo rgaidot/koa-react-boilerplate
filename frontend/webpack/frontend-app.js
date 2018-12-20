@@ -1,6 +1,8 @@
-import { resolve } from 'path';
-import { HotModuleReplacementPlugin } from 'webpack';
+import config from 'config';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
+
+import { resolve } from 'path';
+import { DefinePlugin, HotModuleReplacementPlugin } from 'webpack';
 
 const APP_DIR = resolve(__dirname, '..', 'public');
 const BUILD_DIR = resolve(__dirname, '..', 'src');
@@ -15,6 +17,10 @@ module.exports = {
     plugins: [
         new HotModuleReplacementPlugin(),
         new FriendlyErrorsWebpackPlugin(),
+        new DefinePlugin({
+            appName: JSON.stringify(config.appName),
+            version: JSON.stringify(config.version),
+        }),
     ],
     devServer: {
         contentBase: HTML_DIR,
