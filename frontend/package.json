@@ -4,7 +4,7 @@
   "description": "Koa RESTful Front",
   "main": "index.js",
   "engines": {
-    "node": ">= 7.6.0"
+    "node": ">= 10.14.2"
   },
   "dependencies": {
     "antd": "^2.8.3",
