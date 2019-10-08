@@ -1,9 +1,12 @@
+declare var appName;
+declare var version;
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import style from './Footer.scss';
 
-import config from '../../../config';
+import config from 'config';
 
 const Footer = props => {
     const { appName, version } = props;
@@ -23,8 +26,8 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
-    appName: config.appName,
-    version: config.version,
+    appName,
+    version,
 };
 
 export default Footer;

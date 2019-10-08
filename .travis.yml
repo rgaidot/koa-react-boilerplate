@@ -7,7 +7,7 @@ services:
   - redis-server
 
 node_js:
-    - '7.6.0'
+    - '10.14.2'
 
 env:
     - CXX=g++-6
