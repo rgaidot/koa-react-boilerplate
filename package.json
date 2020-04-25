@@ -5,6 +5,6 @@
   "author": "Régis Gaidot",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^3.4.0"
+    "concurrently": "^5.2.0"
   }
 }
